@@ -56,3 +56,78 @@ width: 100vw
     border-radius: 4px;
     margin: 20px;
 }
+.dashheader {
+    background-color: #726A95;
+    color: #A0C1B8;
+    margin: 0;
+    padding: 10px;
+  }
+  .profileheader {
+    margin: 20px;
+    padding: 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    align-items: center;
+    background-color: #719FB0;
+    color:#351F39;}
+.profileheader h2{
+    margin: 5px;
+}
+  .carddisplay {
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: space-around;
+    justify-content: center;
+    gap: 25px;
+    margin: 20px
+}
+.card {
+    border-radius: 3px;
+    border: solid 3px #719FB0;
+    min-width: fit-content;
+    padding: 0;
+
+}
+.cardheader {
+    margin: 0;
+    padding: 0 15px 0 15px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    background-color: #719FB0;
+    color:#351F39;
+    box-shadow: 2px -2px #719FB0, -2px -2px #719FB0, 2px 0  #719FB0;
+}
+.cardheader div{
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    justify-content: center;
+}
+.carduser, .carddate{
+    margin: 0;
+}
+.carddesc{
+    margin: 15px;
+}
+.cardsnippet{
+    margin: 10px 10px 10px 10px;
+    width: auto;
+    padding: 8px 8px 8px 18px;
+    display:block;
+    white-space:pre-line;
+    border-radius: 3px;
+    background-color: #A0C1B8;
+    color:#351F39;
+    text-justify: center;
+    text-align: left;
+}
+.cardlang {
+    border-top: solid 2px #719FB0;
+    text-align: center;
+    margin: 20px 0 8px 0;
+    padding: 8px 0 4px 0;
+}
