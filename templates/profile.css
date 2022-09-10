@@ -56,14 +56,27 @@ width: 100vw
     border-radius: 4px;
     margin: 20px;
 }
-
-#searchparams {
-    font-size: x-large;
-    margin-left: 50px;
-}
-.carddisplay {
+.dashheader {
+    background-color: #726A95;
+    color: #A0C1B8;
+    margin: 0;
+    padding: 10px;
+  }
+  .profileheader {
+    margin: 20px;
+    padding: 15px;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
+    align-content: center;
+    align-items: center;
+    background-color: #719FB0;
+    color:#351F39;}
+.profileheader h2{
+    margin: 5px;
+}
+  .carddisplay {
+    display: flex;
+    flex-flow: column nowrap;
     align-content: space-around;
     justify-content: center;
     gap: 25px;
@@ -115,10 +128,6 @@ width: 100vw
 .cardlang {
     border-top: solid 2px #719FB0;
     text-align: center;
-    margin: 8px 0 8px 0;
+    margin: 20px 0 8px 0;
     padding: 8px 0 4px 0;
-}
-
-footer{
-    margin: 10px;
 }
