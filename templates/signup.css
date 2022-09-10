@@ -1,0 +1,119 @@
+body {
+    background-color: #351F39;
+    color: #719FB0;
+    margin: 0
+}
+
+header {
+    display: flex;
+flex-flow: column nowrap;
+align-content: flex-start;
+background: linear-gradient(160deg, #719FB0 60%, #A0C1B8);
+border-bottom: 5px #719FB0 ridge;
+color: #351F39;
+margin: 0;
+width: 100vw
+}
+.navbtn {
+    margin: 10px;
+    width: fit-content;
+}
+#navbar {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-content: center;
+    margin: 10px 20px 20px 20px;
+}
+#search{
+    gap: 8px;
+    margin:auto;
+   display: flex;
+   flex-flow: row nowrap;
+}
+#search label{
+    font-weight: 600;
+    margin: auto;
+}
+#searchbar{
+    margin:auto;
+}
+#newsnippetbtn {
+    background-color: #726A95;
+    border-radius: 3px;
+    border: ridge 3px #351F39;
+    color:#A0C1B8;
+    width: 60px;
+    margin: auto 20px auto 10px;
+    align-self: flex-end;
+}
+#apptitle {
+    color: #A0C1B8;
+    background-color: #726A95;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 20px;
+}
+.bigcard {
+    margin: 20px 50px 20px 50px;
+    border-radius: 5px;
+    border: 5px solid #475d5b;
+    height: fit-content;
+    padding-bottom: 15px;
+  }
+  .cardheader {
+    background-color: #719FB0;
+    color: #351F39;
+    margin: 0;
+    padding: 10px;
+  }
+  .cardinput {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .inputdiv {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+  }
+  label {
+    font-size: x-large;
+    font-weight: 500;
+    width: 95%;
+    margin: 15px 30px 0 40px;
+  }
+  form label {
+    font-size: x-large;
+    font-weight: 500;
+    width: 95%;
+    margin: 15px 30px 0 40px;
+  }
+  input {
+    align-self: center;
+    height: 30px;
+    width: 95%;
+  }
+  #submitbtn {
+  align-self: center;
+  justify-self: center;
+  background-color: #A0C1B8;
+  color: #726A95;
+  font-size: large;
+  height: 36px;
+  width: 95%;
+  border-radius: 5px;
+  margin: 36px 0 10px 0;
+}
+#submitbtn[type="submit"]:hover {
+  cursor: pointer;
+}
+#submitbtn[type="submit"]:active {
+  background-color: #ffa8ba;
+  border: inset;
+}
+.loginswitch{
+  color: #719FB0;
+  margin-left: 20px;
+}
