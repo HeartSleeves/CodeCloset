@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/Snippet.css";
 
 function Snippet (){
     return (<body>

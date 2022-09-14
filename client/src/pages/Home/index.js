@@ -1,8 +1,6 @@
 import React from "react";
-//TODO Create individual CSS file
-import "../styles/Homepage.css";
 
-function Homepage() {
+function Home() {
   return (
     <body>
     <div>
@@ -106,4 +104,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Home;

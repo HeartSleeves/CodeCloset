@@ -1,12 +1,11 @@
 import React from "react";
-import "../styles/Login.css";
 
-function Login (){
+function Signup(){
     return (
-<body>
+        <body>
       <form class="bigcard login-form">
         <div>
-          <h2 class="cardheader">Login</h2>
+          <h2 class="cardheader">Signup</h2>
         </div>
         <div class="cardinput">
           <div class="inputdiv">
@@ -17,13 +16,13 @@ function Login (){
             <label for="password">Password</label>
             <input id="password-login" type="password" placeholder="Password" />
           </div>
-          <button type="submit" id="submitbtn">Login</button>
+          <button type="submit" id="submitbtn">Signup</button>
         </div>
         <div class="commentdata">
-          <a href="/signup" class="loginswitch">Signup instead?</a></div>
+          <a href="/login" class="loginswitch">Login instead?</a></div>
       </form>
 </body>
-);
- }
+    );
+}
 
- export default Login
+export default Signup
