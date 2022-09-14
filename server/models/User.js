@@ -1,7 +1,7 @@
 const {Schema, model}= require('mongoose');
 //const bcrypt =require('bcrypt');
 
-const snippetSchema= require('./Snippet');
+//const snippetSchema= require('./Snippet');
 
 const userSchema= new Schema(
     {
@@ -14,21 +14,24 @@ const userSchema= new Schema(
             type: String,
             required:true,
         },
-        // snippets: [
-        //     {
-        //       type: Schema.Types.ObjectId,
-        //       ref: 'Snippet',
-        //     }
-        // ],
-        savedSnippets: [snippetSchema]
-        
+        snippets: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: 'Snippet',
+            }
+        ],
+        comments: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: 'Comment',
+            }
+        ],
     },
-
-    {
-        toJSON: {
-            virtuals: true,
-        },
-    }
+    // {
+    //     toJSON: {
+    //         virtuals: true,
+    //     },
+    // }
 );
 
 userSchema.methods.checkPassword = async function(password){
