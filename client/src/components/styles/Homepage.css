@@ -1,53 +1,3 @@
-body {
-    background-color: #351F39;
-    color: #719FB0;
-    margin: 0
-}
-
-header {
-    display: flex;
-flex-flow: column nowrap;
-align-content: flex-start;
-background: linear-gradient(160deg, #719FB0 60%, #A0C1B8);
-border-bottom: 5px #719FB0 ridge;
-color: #351F39;
-margin: 0;
-width: 100vw
-}
-.navbtn {
-    margin: 10px;
-    width: fit-content;
-}
-#navbar {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    justify-items: flex-start;
-    align-content: center;
-    margin: 10px 20px 20px 20px;
-}
-#search{
-    gap: 8px;
-    margin:auto;
-   display: flex;
-   flex-flow: row nowrap;
-}
-#search label{
-    font-weight: 600;
-    margin: auto;
-}
-#searchbar{
-    margin:auto;
-}
-#newsnippetbtn {
-    background-color: #726A95;
-    border-radius: 3px;
-    border: ridge 3px #351F39;
-    color:#A0C1B8;
-    width: 60px;
-    margin: auto 20px auto 10px;
-    align-self: flex-end;
-}
 #apptitle {
     color: #A0C1B8;
     background-color: #726A95;
@@ -60,6 +10,10 @@ width: 100vw
 #searchparams {
     font-size: x-large;
     margin-left: 50px;
+    color:#726A95;
+     width:80%;
+     border-bottom: solid 3px #719FB0;
+     padding-bottom: 10px;
 }
 .carddisplay {
     display: flex;

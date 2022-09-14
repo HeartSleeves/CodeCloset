@@ -1,19 +1,27 @@
-import React from "react";
-import Header from "./Header";
+import React, { useState } from 'react';
+import Header from './Header';
+import Homepage from './pages/Homepage'
+import Profile from './pages/Profile';
+import Login from './pages/Login';
+import Contact from './pages/Contact';
+import Signup from './pages/Signup';
 
-export default function DeployedContainer() {
-    const [currentPage, setCurrentPage] = useState('Portfolio');
+export default function AppContainer() {
+    const [currentPage, setCurrentPage] = useState('Homepage');
   
     // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
     const renderPage = () => {
-      if (currentPage === 'Bio') {
-        return <Bio />;
+      if (currentPage === 'Homepage') {
+        return <Homepage />;
       }
-      if (currentPage === 'Portfolio') {
-        return <Deployed deployments={deployments} undeployed={undeployed}/>
+      if (currentPage === 'Profile') {
+        return <Profile />
       }
-      if (currentPage === 'Resume') {
-        return <Resume />;
+      if (currentPage === 'Login') {
+        return <Login />;
+      }
+      if (currentPage === 'Signup'){
+        return <Signup />;
       }
       return <Contact />;
     };
@@ -22,9 +30,9 @@ export default function DeployedContainer() {
   
     return (
       <div>
-        {/* We are passing the currentPage from state and the function to update it */}
-        <Header currentPage={currentPage} handlePageChange={handlePageChange} />
-        {/* Here we are calling the renderPage method which will return a component  */}
+        <Header
+         currentPage={currentPage} handlePageChange={handlePageChange} 
+         />
         {renderPage()}
       </div>
     );

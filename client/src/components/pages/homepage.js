@@ -1,27 +1,109 @@
 import React from "react";
 //TODO Create individual CSS file
-import "../../styles/Homepage.css";
+import "../styles/Homepage.css";
 
-const styles = {
-  heading: {
-    color: "#583a6d",
-  },
-};
-
-function Homepage(props) {
+function Homepage() {
   return (
-    <aside>
-      <h2 style={styles.heading}>About Me</h2>
-      <hr style={styles.heading} />
-        <section class="undeployed">
-          <h2>
-            Ivy Lovegood
-          </h2>
-          <figcaption class="page-description">I am a capable developer with comprehensive knowledge of integrated web product development. Meticulous troubleshooter with demonstrated track-record of investigating and solving difficult multi-disciplinary problems both within software and embedded devices. Experienced in performing on-site installation and repair of complex systems. Persistent learner with several certificates including a certificate of completions from the UW Professional & Continuing Education’s Full Stack Development Program.</figcaption>
-        </section>
-      
-      </aside>
+    <body>
+    <div>
+        <h3 id="searchparams" class="title">All Snippets</h3>
+    </div>
+    <section id="searchresults" class="carddisplay">
+        <article class="card">
+            <div class="cardheader">
+                <h4 class="cardtitle">Snippet</h4>
+                    <div>
+                        <p class="carduser">Created by:</p>
+                        <p class="carddate">Date created</p>
+                    </div>
+            </div>
+            <div>
+                <p class="carddesc">short description of what the code does</p>
+            </div>
+            <div>
+                <code class="cardsnippet">.row &lbrace;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                  &rbrace;</code>
+            </div>
+            <div>
+                <p class="cardlang">Language</p>
+            </div>
+        </article>
+        <article class="card">
+            <div class="cardheader">
+                <h4 class="cardtitle">Snippet</h4>
+                    <div>
+                        <p class="carduser">Created by:</p>
+                        <p class="carddate">Date created</p>
+                    </div>
+            </div>
+            <div>
+                <p class="carddesc">short description of what the code does</p>
+            </div>
+            <div>
+                <code class="cardsnippet">.row &lbrace;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                  &rbrace;</code>
+            </div>
+            <div>
+                <p class="cardlang">Language</p>
+            </div>
+        </article>
+        <article class="card">
+            <div class="cardheader">
+                <h4 class="cardtitle">Snippet</h4>
+                    <div>
+                        <p class="carduser">Created by:</p>
+                        <p class="carddate">Date created</p>
+                    </div>
+            </div>
+            <div>
+                <p class="carddesc">short description of what the code does</p>
+            </div>
+            <div>
+                <code class="cardsnippet">.row &lbrace;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                  &rbrace;</code>
+            </div>
+            <div>
+                <p class="cardlang">Language</p>
+            </div>
+        </article>
+        <article class="card">
+            <div class="cardheader">
+                <h4 class="cardtitle">Snippet</h4>
+                    <div>
+                        <p class="carduser">Created by:</p>
+                        <p class="carddate">Date created</p>
+                    </div>
+            </div>
+            <div>
+                <p class="carddesc">short description of what the code does</p>
+            </div>
+            <div>
+                <code class="cardsnippet">.row &lbrace;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                  &rbrace;</code>
+            </div>
+            <div>
+                <p class="cardlang">Language</p>
+            </div>
+        </article>
+    </section>
+    <footer>
+        <h5>Created by: Adeline Aguspranoto and Ivy Lovegood</h5>
+    </footer>
+
+</body>
   );
 }
 
-export default Bio;
+export default Homepage;
