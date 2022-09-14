@@ -1,62 +1,69 @@
 import { gql } from '@apollo/client';
 
+export const QUERY_PRODUCTS = gql`
+  query getProducts($category: ID) {
+    products(category: $category) {
+      _id
+      name
+      description
+      price
+      quantity
+      image
+      category {
+        _id
+      }
+    }
+  }
+`;
+
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($products: [ID]!) {
+    checkout(products: $products) {
+      session
+    }
+  }
+`;
+
+export const QUERY_ALL_PRODUCTS = gql`
+  {
+    products {
+      _id
+      name
+      description
+      price
+      quantity
+      category {
+        name
+      }
+    }
+  }
+`;
+
+export const QUERY_CATEGORIES = gql`
+  {
+    categories {
+      _id
+      name
+    }
+  }
+`;
+
 export const QUERY_USER = gql`
-  query user($email: String!) {
-    user(email: $email) {
-      _id
-      email
-      snippets {
+  {
+    user {
+      firstName
+      lastName
+      orders {
         _id
-        snippetTitle
-        createdAt
-      }
-    }
-  }
-`;
-
-export const QUERY_SNIPPETS = gql`
-  query getSnippets {
-    snippets {
-      _id
-      snippetTitle
-      snippetDescription
-      snippetText
-      snippetAuthor
-      createdAt
-    }
-  }
-`;
-
-export const QUERY_SINGLE_SNIPPET = gql`
-  query getSingleSnippet($snippetId: ID!) {
-    snippet(snippetId: $snippetId) {
-      _id
-      snippetTitle
-      snippetDescription
-      snippetText
-      snippetAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
-    }
-  }
-`;
-
-export const QUERY_ME = gql`
-  query me {
-    me {
-      _id
-      username
-      email
-      thoughts {
-        _id
-        thoughtText
-        thoughtAuthor
-        createdAt
+        purchaseDate
+        products {
+          _id
+          name
+          description
+          price
+          quantity
+          image
+        }
       }
     }
   }

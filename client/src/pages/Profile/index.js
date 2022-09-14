@@ -1,32 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./profile.css">
-    <title>Code Closet</title>
-    
-</head>
-<header>
-    <h1 id="apptitle" class="title">Code Closet</h1>
-        <nav id="navbar">
-            <h2 class="navbtn" id="profile">Profile</h2>
-            <h2 class="navbtn" id="signup">Signup</h2>
-            <h2 class="navbtn" id="login">Login</h2>
-            <h2 class="navbtn" id="logout">Logout</h2>
-            <div id="search">
-                <label for="searchbar">Search</label>
-                <input type="search" class="searchbar" id="searchbar" name="searchbar">
-            </div>
-                <button id="newsnippetbtn">Create New Snippet</button>
-            </div>
-        </div>
-        </nav>
-    </header>
+import React from "react";
+
+function Profile (){
+    return (
+        <body>
         <section class="profileheader">
-          <h2>Welcome {{name}}!</h2>
-          <h2>You've made {{posts.length}} Posts:</h2>
+          <h2>Welcome username!</h2>
+          <h2>You've made post.length Posts:</h2>
           <h2>Create your first post!</h2>
         </section>
         <section id="searchresults" class="carddisplay">
@@ -42,11 +21,7 @@
                     <p class="carddesc">short description of what the code does</p>
                 </div>
                 <div>
-                    <code class="cardsnippet">.row {
-                        display: flex;
-                        flex-direction: row;
-                        flex-wrap: wrap;
-                      }</code>
+                    <code class="cardsnippet">insert code</code>
                 </div>
                 <div>
                     <p class="cardlang">Language</p>
@@ -64,11 +39,7 @@
                     <p class="carddesc">short description of what the code does</p>
                 </div>
                 <div>
-                    <code class="cardsnippet">.row {
-                        display: flex;
-                        flex-direction: row;
-                        flex-wrap: wrap;
-                      }</code>
+                    <code class="cardsnippet">Insert Code</code>
                 </div>
                 <div>
                     <p class="cardlang">Language</p>
@@ -86,11 +57,7 @@
                     <p class="carddesc">short description of what the code does</p>
                 </div>
                 <div>
-                    <code class="cardsnippet">.row {
-                        display: flex;
-                        flex-direction: row;
-                        flex-wrap: wrap;
-                      }</code>
+                    <code class="cardsnippet">Insert Code</code>
                 </div>
                 <div>
                     <p class="cardlang">Language</p>
@@ -108,14 +75,15 @@
                     <p class="carddesc">short description of what the code does</p>
                 </div>
                 <div>
-                    <code class="cardsnippet">.row {
-                        display: flex;
-                        flex-direction: row;
-                        flex-wrap: wrap;
-                      }</code>
+                    <code class="cardsnippet">Insert Code</code>
                 </div>
                 <div>
                     <p class="cardlang">Language</p>
                 </div>
             </article>
         </section>
+</body>
+    );
+}
+
+export default Profile

@@ -1,35 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./homepage.css">
-    <title>Code Closet</title>
-    
-</head>
-<header>
-    <h1 id="apptitle" class="title">Code Closet</h1>
-        <nav id="navbar">
-            <h2 class="navbtn" id="profile">Profile</h2>
-            <h2 class="navbtn" id="signup">Signup</h2>
-            <h2 class="navbtn" id="login">Login</h2>
-            <h2 class="navbtn" id="logout">Logout</h2>
-            <div id="search">
-                <label for="searchbar">Search</label>
-                <input type="search" class="searchbar" id="searchbar" name="searchbar">
-            </div>
-                <button id="newsnippetbtn">Create New Snippet</button>
-            </div>
-        </div>
-        </nav>
+import React from "react";
 
-</header>
-<body>
+function Home() {
+  return (
+    <body>
     <div>
-        <!-- searchparams value = user search. Default all-->
         <h3 id="searchparams" class="title">All Snippets</h3>
-        <hr color="#726A95" width="80%">
     </div>
     <section id="searchresults" class="carddisplay">
         <article class="card">
@@ -44,11 +19,11 @@
                 <p class="carddesc">short description of what the code does</p>
             </div>
             <div>
-                <code class="cardsnippet">.row {
+                <code class="cardsnippet">.row &lbrace;
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
-                  }</code>
+                  &rbrace;</code>
             </div>
             <div>
                 <p class="cardlang">Language</p>
@@ -66,11 +41,11 @@
                 <p class="carddesc">short description of what the code does</p>
             </div>
             <div>
-                <code class="cardsnippet">.row {
+                <code class="cardsnippet">.row &lbrace;
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
-                  }</code>
+                  &rbrace;</code>
             </div>
             <div>
                 <p class="cardlang">Language</p>
@@ -88,11 +63,11 @@
                 <p class="carddesc">short description of what the code does</p>
             </div>
             <div>
-                <code class="cardsnippet">.row {
+                <code class="cardsnippet">.row &lbrace;
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
-                  }</code>
+                  &rbrace;</code>
             </div>
             <div>
                 <p class="cardlang">Language</p>
@@ -110,11 +85,11 @@
                 <p class="carddesc">short description of what the code does</p>
             </div>
             <div>
-                <code class="cardsnippet">.row {
+                <code class="cardsnippet">.row &lbrace;
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
-                  }</code>
+                  &rbrace;</code>
             </div>
             <div>
                 <p class="cardlang">Language</p>
@@ -126,4 +101,7 @@
     </footer>
 
 </body>
-</html>
+  );
+}
+
+export default Home;
