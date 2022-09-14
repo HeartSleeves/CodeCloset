@@ -1,5 +1,5 @@
-const User= require('./User.js');
-const Snippet= require('./Snippet.js');
-const Comment= require('./Comment.js')
+const User= require('./User');
+const Snippet= require('./Snippet');
+const Comment= require('./Comment')
 
 module.exports= { User, Snippet, Comment};
