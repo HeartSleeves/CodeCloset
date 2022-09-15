@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 import {
-  UPDATE_PRODUCTS,
+  UPDATE_SNIPPET,
   ADD_TO_CART,
   UPDATE_CART_QUANTITY,
   REMOVE_FROM_CART,
@@ -15,7 +15,7 @@ import {
 export const reducer = (state, action) => {
   switch (action.type) {
     // Returns a copy of state with an update products array. We use the action.products property and spread it's contents into the new array.
-    case UPDATE_PRODUCTS:
+    case UPDATE_SNIPPET:
       return {
         ...state,
         products: [...action.products],
@@ -93,6 +93,6 @@ export const reducer = (state, action) => {
   }
 };
 
-export function useProductReducer(initialState) {
+export function useSnippetReducer(initialState) {
   return useReducer(reducer, initialState);
 }
