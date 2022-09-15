@@ -14,9 +14,7 @@ function Header() {
           </Link>
          </h2>
               <h2 className="navbtn" id="logout">
-            <a href="#logout"
-          // onClick={() => Logout}
-        >
+              <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a></h2>                         
         </div>
