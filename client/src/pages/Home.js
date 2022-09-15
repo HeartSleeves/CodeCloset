@@ -1,8 +1,10 @@
 import React from "react";
+import SnippetList from "../components/SnippetList"
 
-function Home() {
+const Home = () => {
   return (
-    <body>
+
+    <div>
     <div>
         <h3 id="searchparams" className="title">All Snippets</h3>
     </div>
@@ -100,7 +102,7 @@ function Home() {
         <h5>Created by: Adeline Aguspranoto and Ivy Lovegood</h5>
     </footer>
 
-</body>
+</div>
   );
 }
 

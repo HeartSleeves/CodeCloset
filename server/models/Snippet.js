@@ -13,7 +13,7 @@ const snippetSchema= new Schema({
     },
     snippetAuthor:{
         type:String, 
-        required: true,
+        // required: true,
         trim:true,
     },
     createdAt:{

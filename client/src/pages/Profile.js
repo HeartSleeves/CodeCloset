@@ -3,82 +3,82 @@ import React from "react";
 function Profile (){
     return (
         <body>
-        <section class="profileheader">
+        <section className="profileheader">
           <h2>Welcome username!</h2>
           <h2>You've made post.length Posts:</h2>
           <h2>Create your first post!</h2>
         </section>
-        <section id="searchresults" class="carddisplay">
-            <article class="card">
-                <div class="cardheader">
-                    <h4 class="cardtitle">Snippet</h4>
+        <section id="searchresults" className="carddisplay">
+            <article className="card">
+                <div className="cardheader">
+                    <h4 className="cardtitle">Snippet</h4>
                         <div>
-                            <p class="carduser">Created by:</p>
-                            <p class="carddate">Date created</p>
+                            <p className="carduser">Created by:</p>
+                            <p className="carddate">Date created</p>
                         </div>
                 </div>
                 <div>
-                    <p class="carddesc">short description of what the code does</p>
+                    <p className="carddesc">short description of what the code does</p>
                 </div>
                 <div>
-                    <code class="cardsnippet">insert code</code>
+                    <code className="cardsnippet">insert code</code>
                 </div>
                 <div>
-                    <p class="cardlang">Language</p>
+                    <p className="cardlang">Language</p>
                 </div>
             </article>
-            <article class="card">
-                <div class="cardheader">
-                    <h4 class="cardtitle">Snippet</h4>
+            <article className="card">
+                <div className="cardheader">
+                    <h4 className="cardtitle">Snippet</h4>
                         <div>
-                            <p class="carduser">Created by:</p>
-                            <p class="carddate">Date created</p>
+                            <p className="carduser">Created by:</p>
+                            <p className="carddate">Date created</p>
                         </div>
                 </div>
                 <div>
-                    <p class="carddesc">short description of what the code does</p>
+                    <p className="carddesc">short description of what the code does</p>
                 </div>
                 <div>
-                    <code class="cardsnippet">Insert Code</code>
+                    <code className="cardsnippet">Insert Code</code>
                 </div>
                 <div>
-                    <p class="cardlang">Language</p>
+                    <p className="cardlang">Language</p>
                 </div>
             </article>
-            <article class="card">
-                <div class="cardheader">
-                    <h4 class="cardtitle">Snippet</h4>
+            <article className="card">
+                <div className="cardheader">
+                    <h4 className="cardtitle">Snippet</h4>
                         <div>
-                            <p class="carduser">Created by:</p>
-                            <p class="carddate">Date created</p>
+                            <p className="carduser">Created by:</p>
+                            <p className="carddate">Date created</p>
                         </div>
                 </div>
                 <div>
-                    <p class="carddesc">short description of what the code does</p>
+                    <p className="carddesc">short description of what the code does</p>
                 </div>
                 <div>
-                    <code class="cardsnippet">Insert Code</code>
+                    <code className="cardsnippet">Insert Code</code>
                 </div>
                 <div>
-                    <p class="cardlang">Language</p>
+                    <p className="cardlang">Language</p>
                 </div>
             </article>
-            <article class="card">
-                <div class="cardheader">
-                    <h4 class="cardtitle">Snippet</h4>
+            <article className="card">
+                <div className="cardheader">
+                    <h4 className="cardtitle">Snippet</h4>
                         <div>
-                            <p class="carduser">Created by:</p>
-                            <p class="carddate">Date created</p>
+                            <p className="carduser">Created by:</p>
+                            <p className="carddate">Date created</p>
                         </div>
                 </div>
                 <div>
-                    <p class="carddesc">short description of what the code does</p>
+                    <p className="carddesc">short description of what the code does</p>
                 </div>
                 <div>
-                    <code class="cardsnippet">Insert Code</code>
+                    <code className="cardsnippet">Insert Code</code>
                 </div>
                 <div>
-                    <p class="cardlang">Language</p>
+                    <p className="cardlang">Language</p>
                 </div>
             </article>
         </section>

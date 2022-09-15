@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react';
 import Snippet from '../Snippet';
-import { useStoreContext } from '../../utils/GlobalState';
-import { UPDATE_SNIPPETS } from '../../utils/actions';
+import { useAppContext } from '../../utils/GlobalState';
+import { UPDATE_SNIPPET } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
-import { QUERY_SNIPPETS } from '../../utils/queries';
+import { QUERY_SNIPPET } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
 function SnippetList() {
-  const [state, dispatch] = useStoreContext();
+  const [state, dispatch] = useAppContext();
 
   const { currentCategory } = state;
 
-  const { loading, data } = useQuery(QUERY_SNIPPETS);
+  const { loading, data } = useQuery(QUERY_SNIPPET);
 
   useEffect(() => {
     if (data) {
       dispatch({
-        type: UPDATE_SNIPPETS,
+        type: UPDATE_SNIPPET,
         snippets: data.snippets,
       });
       data.snippets.forEach((snippet) => {
@@ -26,7 +26,7 @@ function SnippetList() {
     } else if (!loading) {
       idbPromise('snippets', 'get').then((snippets) => {
         dispatch({
-          type: UPDATE_SNIPPETS,
+          type: UPDATE_SNIPPET,
           snippets: snippets,
         });
       });

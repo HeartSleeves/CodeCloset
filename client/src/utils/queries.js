@@ -1,12 +1,14 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_SNIPPETS = gql`
+export const QUERY_SNIPPET = gql`
   query getSnippets($category: ID) {
     snippets {
       _id
       snippetTitle
       snippetDescription
       snippetText
+      snippetAuthor
+      createdAt
     }
   }
 `;
@@ -55,6 +57,24 @@ export const QUERY_USER = gql`
           snippetDescription
           snippetText
         }
+      }
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      username
+      email
+      snippets {
+        _id
+        snippetTitle
+        snippetDescription
+        snippetText
+        snippetAuthor
+        createdAt
       }
     }
   }

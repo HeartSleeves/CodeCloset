@@ -14,10 +14,9 @@ const typeDefs = gql`
     snippetTitle: String
     snippetDescription: String
     snippetText: String
-    snippetAuthor:String
-    createdAt:String
-    comments: [Comment]
-
+    snippetAuthor: String
+    createdAt: String
+    comments: [Comment]!
   }
   
   type Comment{
