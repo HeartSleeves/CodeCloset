@@ -1,36 +1,47 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { pluralize } from "../../utils/helpers"
+import { useAppContext } from "../../utils/GlobalState";
 
-function Snippet (){
-    return (<body>
-        <section class="snippetdisplay">
-                <h3 class="snippettitle"> Title of Snippet</h3>
-        <p class="snippetdesc">This is a description of what the code does</p>
-            <div class="snippetbody">
-            <code>function Bio(props) codecodecode
-                code
-                code code
+function Snippet (snippet){
+    const{
+        title,
+        _id,
+        desc,
+        text,
+        author,
+        // language,
+        // tags,
+    } = snippet;
+
+    return (<div>
+        <section className="snippetdisplay">
+            <Link to={`/snippets/${_id}`}>
+                <h3 className="snippettitle">{title}</h3>
+            </Link>
+        <p className="snippetdesc">{desc}</p>
+            <div className="snippetbody">
+            <code>{text}
      </code>
     </div>
-    <div class="snippetdata">
-        <h4 class="snippetlang">Javascript</h4>
-        <ul class="snippettags">
-            <li class="tag">tag</li>
-            <li class="tag">also tag</li>
-            <li class="tag">another tag</li>
-            <li class="tag">look! tag</li>
+    <div className="snippetdata">
+        <h4 className="snippetlang">{language}</h4>
+        <ul className="snippettags">
+            <li className="tag">tag</li>
+            
         </ul>
     </div>
         </section>
-        <section class="commentsection">
+        <section className="commentsection">
             <div>
-                <div class="commentcard">
-                    <div class="commenthead"></div>
+                <div className="commentcard">
+                    <div className="commenthead"></div>
                   
-                  <div class="comment">
-                    <p class="commentcontent">
+                  <div className="comment">
+                    <p className="commentcontent">
                       comment body
                     </p>
-                    <p class="commentdata">
+                    <p className="commentdata">
                       -
                       <a href="/profile/{{user.id}}">username
                       </a>
@@ -40,7 +51,7 @@ function Snippet (){
                   </div>
             </div>
         </section>
-    </body>
+    </div>
     );
 }
 

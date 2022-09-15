@@ -1,70 +1,70 @@
 import React, { useEffect } from 'react';
-import ProductItem from '../ProductItem';
+import Snippet from '../Snippet';
 import { useStoreContext } from '../../utils/GlobalState';
-import { UPDATE_PRODUCTS } from '../../utils/actions';
+import { UPDATE_SNIPPETS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
-import { QUERY_PRODUCTS } from '../../utils/queries';
+import { QUERY_SNIPPETS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
-function ProductList() {
+function SnippetList() {
   const [state, dispatch] = useStoreContext();
 
   const { currentCategory } = state;
 
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, data } = useQuery(QUERY_SNIPPETS);
 
   useEffect(() => {
     if (data) {
       dispatch({
-        type: UPDATE_PRODUCTS,
-        products: data.products,
+        type: UPDATE_SNIPPETS,
+        snippets: data.snippets,
       });
-      data.products.forEach((product) => {
-        idbPromise('products', 'put', product);
+      data.snippets.forEach((snippet) => {
+        idbPromise('snippets', 'put', snippet);
       });
     } else if (!loading) {
-      idbPromise('products', 'get').then((products) => {
+      idbPromise('snippets', 'get').then((snippets) => {
         dispatch({
-          type: UPDATE_PRODUCTS,
-          products: products,
+          type: UPDATE_SNIPPETS,
+          snippets: snippets,
         });
       });
     }
   }, [data, loading, dispatch]);
 
-  function filterProducts() {
+  function filterSnippets() {
     if (!currentCategory) {
-      return state.products;
+      return state.snippets;
     }
 
-    return state.products.filter(
-      (product) => product.category._id === currentCategory
+    return state.snippets.filter(
+      (snippet) => snippet.category._id === currentCategory
     );
   }
 
   return (
     <div className="my-2">
-      <h2>Our Products:</h2>
-      {state.products.length ? (
+      <h2>Our Snippets:</h2>
+      {state.snippets.length ? (
         <div className="flex-row">
-          {filterProducts().map((product) => (
-            <ProductItem
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              quantity={product.quantity}
+          {filterSnippets().map((snippet) => (
+            <Snippet
+            key={snippet._id}
+            _id={snippet._id}
+            title={snippet.snippetTitle}
+            desc={snippet.snippetDescription}
+            text={snippet.snippetText}
+            author={snippet.snippetAuthor}
             />
           ))}
         </div>
       ) : (
-        <h3>You haven't added any products yet!</h3>
+        <h3>You haven't added any snippets yet!</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
     </div>
   );
 }
 
-export default ProductList;
+export default SnippetList;
