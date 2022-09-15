@@ -1,34 +1,36 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
 import { ADD_SNIPPET } from '../utils/mutations';
-import { QUERY_SNIPPET, QUERY_ME} from '../utils/queries';
+// import { Link } from 'react-router-dom';
+// import Auth from '../utils/auth';
+// import { QUERY_SNIPPET, QUERY_ME} from '../utils/queries';
 
 const CreateSnippet = () => {
 
   const [formState, setFormState] = useState({ snippetTitle: '', snippetDescription: '' , snippetText: ''});
-  const [addSnippet, {error}] = useMutation(ADD_SNIPPET, {
-    update(cache, { data: { addSnippet } }) {
-      try {
-        const { snippets } = cache.readQuery({ query: QUERY_SNIPPET });
+  const [addSnippet, {error}] = useMutation(ADD_SNIPPET
+  //   , {
+  //   update(cache, { data: { addSnippet } }) {
+  //     try {
+  //       const { snippets } = cache.readQuery({ query: QUERY_SNIPPET });
 
-        cache.writeQuery({
-          query: QUERY_SNIPPET,
-          data: { snippets: [addSnippet, ...snippets] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
+  //       cache.writeQuery({
+  //         query: QUERY_SNIPPET,
+  //         data: { snippets: [addSnippet, ...snippets] },
+  //       });
+  //     } catch (e) {
+  //       console.error(e);
+  //     }
 
-      // update me object's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, snippets: [...me.snippets, addSnippet] } },
-      });
-    },
-  });
+  //     // // update me object's cache
+  //     // const { me } = cache.readQuery({ query: QUERY_ME });
+  //     // cache.writeQuery({
+  //     //   query: QUERY_ME,
+  //     //   data: { me: { ...me, snippets: [...me.snippets, addSnippet] } },
+  //     // });
+  //   },
+  // }
+  );
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -47,7 +49,7 @@ const CreateSnippet = () => {
     const { name, value } = event.target;
     setFormState({
       ...formState,
-      [name]: value,
+      [name]: value
     });
   };
     return (

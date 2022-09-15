@@ -1,4 +1,5 @@
 import React from "react";
+import Snippet from "../components/Snippet";
 import SnippetList from "../components/SnippetList"
 
 const Home = () => {
@@ -9,7 +10,8 @@ const Home = () => {
         <h3 id="searchparams" className="title">All Snippets</h3>
     </div>
     <section id="searchresults" className="carddisplay">
-        <article className="card">
+        <SnippetList />
+        {/* <article className="card">
             <div className="cardheader">
                 <h4 className="cardtitle">Snippet</h4>
                     <div>
@@ -96,10 +98,10 @@ const Home = () => {
             <div>
                 <p className="cardlang">Language</p>
             </div>
-        </article>
+        </article> */}
     </section>
     <footer>
-        <h5>Created by: Adeline Aguspranoto and Ivy Lovegood</h5>
+        <h5>Created by: Ivy Lovegood and Adeline Aguspranoto</h5>
     </footer>
 
 </div>

@@ -8,47 +8,47 @@ import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
 function SnippetList() {
-  const [state, dispatch] = useAppContext();
+  // const [state, dispatch] = useAppContext();
 
-  const { currentCategory } = state;
+  // const { currentCategory } = state;
 
   const { loading, data } = useQuery(QUERY_SNIPPET);
+  const snippets = data?.snippets || [];
 
-  useEffect(() => {
-    if (data) {
-      dispatch({
-        type: UPDATE_SNIPPET,
-        snippets: data.snippets,
-      });
-      data.snippets.forEach((snippet) => {
-        idbPromise('snippets', 'put', snippet);
-      });
-    } else if (!loading) {
-      idbPromise('snippets', 'get').then((snippets) => {
-        dispatch({
-          type: UPDATE_SNIPPET,
-          snippets: snippets,
-        });
-      });
-    }
-  }, [data, loading, dispatch]);
+  // useEffect(() => {
+  //   if (data) {
+  //     dispatch({
+  //       type: UPDATE_SNIPPET,
+  //       snippets: data.snippets,
+  //     });
+  //     data.snippets.forEach((snippet) => {
+  //       idbPromise('snippets', 'put', snippet);
+  //     });
+  //   } else if (!loading) {
+  //     idbPromise('snippets', 'get').then((snippets) => {
+  //       dispatch({
+  //         type: UPDATE_SNIPPET,
+  //         snippets: snippets,
+  //       });
+  //     });
+  //   }
+  // }, [data, loading, dispatch]);
 
-  function filterSnippets() {
-    if (!currentCategory) {
-      return state.snippets;
-    }
+  // function filterSnippets() {
+  //   if (!currentCategory) {
+  //     return state.snippets;
+  //   }
 
-    return state.snippets.filter(
-      (snippet) => snippet.category._id === currentCategory
-    );
-  }
+  //   return state.snippets.filter(
+  //     (snippet) => snippet.category._id === currentCategory
+  //   );
+  // }
 
   return (
-    <div className="my-2">
-      <h2>Our Snippets:</h2>
-      {state.snippets.length ? (
-        <div className="flex-row">
-          {filterSnippets().map((snippet) => (
+    <section id="searchresults" className="carddisplay">
+      {snippets.length ? (
+        <div>
+          {snippets.map((snippet) => (
             <Snippet
             key={snippet._id}
             _id={snippet._id}
@@ -56,6 +56,7 @@ function SnippetList() {
             desc={snippet.snippetDescription}
             text={snippet.snippetText}
             author={snippet.snippetAuthor}
+            date={snippet.createdAt}
             />
           ))}
         </div>
@@ -63,7 +64,7 @@ function SnippetList() {
         <h3>You haven't added any snippets yet!</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
-    </div>
+    </section>
   );
 }
 

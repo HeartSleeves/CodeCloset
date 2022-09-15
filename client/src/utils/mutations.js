@@ -14,15 +14,15 @@ export const LOGIN = gql`
 export const ADD_SNIPPET = gql`
   mutation addSnippet($snippetTitle: String!, $snippetDescription: String!, $snippetText: String!) {
     addSnippet(snippetTitle: $snippetTitle, snippetDescription: $snippetDescription, snippetText: $snippetText) {
+      _id
+      snippetAuthor
+      createdAt
+      snippetTitle
+      snippetDescription
+      snippetText
+      comments {
         _id
-        snippetTitle
-        snippetDescription
-        snippetText
-        snippetAuthor
-        createdAt
-        comments {
-          _id
-        }
+      }
     }
   }
 `;
