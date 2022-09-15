@@ -1,5 +1,5 @@
 const {Schema, model}= require('mongoose');
-//const bcrypt =require('bcrypt');
+const bcrypt =require('bcrypt');
 
 //const snippetSchema= require('./Snippet');
 
@@ -34,8 +34,17 @@ const userSchema= new Schema(
     // }
 );
 
+userSchema.pre('save', async function(next) {
+    if (this.isNew || this.isModified('password')) {
+      const saltRounds = 10;
+      this.password = await bcrypt.hash(this.password, saltRounds);
+    }
+  
+    next();
+  });
+
 userSchema.methods.checkPassword = async function(password){
-    return compare(password,this.password);
+    return await bcrypt.compare(password,this.password);
 };
 
 userSchema.virtual('snippetCount').get(function(){

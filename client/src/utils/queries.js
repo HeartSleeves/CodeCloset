@@ -1,17 +1,12 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_PRODUCTS = gql`
-  query getProducts($category: ID) {
-    products(category: $category) {
+export const QUERY_SNIPPETS = gql`
+  query getSnippets($category: ID) {
+    snippets {
       _id
-      name
-      description
-      price
-      quantity
-      image
-      category {
-        _id
-      }
+      snippetTitle
+      snippetDescription
+      snippetText
     }
   }
 `;
@@ -51,18 +46,14 @@ export const QUERY_CATEGORIES = gql`
 export const QUERY_USER = gql`
   {
     user {
-      firstName
-      lastName
       orders {
         _id
         purchaseDate
-        products {
+        snippets {
           _id
-          name
-          description
-          price
-          quantity
-          image
+          snippetTitle
+          snippetDescription
+          snippetText
         }
       }
     }

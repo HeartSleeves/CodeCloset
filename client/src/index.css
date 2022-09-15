@@ -79,6 +79,9 @@ header a{
   height: fit-content;
   padding-bottom: 15px;
 }
+.bigcard p {
+  margin: 0 0 0 20px;
+}
 .cardheader {
   background-color: #719FB0;
   color: #351F39;

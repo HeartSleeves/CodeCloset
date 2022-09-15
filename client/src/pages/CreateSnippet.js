@@ -32,7 +32,7 @@ function CreateSnippet (){
           placeholder="insert code here"
         ></textarea>
       </div>
-      <div class="inputdiv">
+      {/* <div class="inputdiv">
         <label for="langinput">Language</label>
         <input
           id="langinput"
@@ -49,11 +49,11 @@ function CreateSnippet (){
           name="taginput"
           placeholder="tags"
         />
-      </div>
+      </div> */}
       <button type="submit" id="submitbtn">Submit</button>
     </div>
   </form>
     );
 }
 
-export default CreateSnippet
+export default CreateSnippet;

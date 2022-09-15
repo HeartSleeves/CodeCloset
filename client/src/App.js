@@ -8,15 +8,14 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
 import Home from './pages/Home';
-import Header from './pages/Header';
+import Header from './components/Header';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Contact from './pages/Contact';
+import Contact from './components/Contact';
 import NoMatch from './pages/NoMatch'
-import { StoreProvider } from './utils/GlobalState';
+import { AppProvider } from './utils/GlobalState';
 import CreateSnippet from './pages/CreateSnippet';
 
 const httpLink = createHttpLink({
@@ -43,7 +42,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <StoreProvider>
+          <AppProvider>
             <Header />
             <Routes>
               <Route 
@@ -75,7 +74,7 @@ function App() {
                 element={<NoMatch />} 
               />
             </Routes>
-          </StoreProvider>
+          </AppProvider>
         </div>
       </Router>
     </ApolloProvider>
@@ -83,34 +82,3 @@ function App() {
 }
 
 export default App;
-// export default function App() {
-//     const [currentPage, setCurrentPage] = useState('Homepage');
-  
-//     // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
-//     const renderPage = () => {
-//       if (currentPage === 'Homepage') {
-//         return <Homepage />;
-//       }
-//       if (currentPage === 'Profile') {
-//         return <Profile />
-//       }
-//       if (currentPage === 'Login') {
-//         return <Login />;
-//       }
-//       if (currentPage === 'Signup'){
-//         return <Signup />;
-//       }
-//       return <Contact />;
-//     };
-  
-//     const handlePageChange = (page) => setCurrentPage(page);
-  
-//     return (
-//       <div>
-//         <Header
-//          currentPage={currentPage} handlePageChange={handlePageChange} 
-//          />
-//         {renderPage()}
-//       </div>
-//     );
-//   }
