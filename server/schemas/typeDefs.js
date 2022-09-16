@@ -26,6 +26,11 @@ const typeDefs = gql`
     createdAt: String
   }
 
+  type Tag{
+    _id: ID
+    tagText: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -44,6 +49,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addSnippet(snippetTitle: String!, snippetDescription: String!, snippetText: String!): Snippet
     addComment(commentText: String!): Comment
+    addTag(tagText: String! ): Tag
   }
 `;
 

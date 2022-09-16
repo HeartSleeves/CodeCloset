@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Snippet } = require('../models');
+const { User, Snippet, Comment, Tag } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -84,6 +84,21 @@ const resolvers = {
         );
 
         return comment;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addTag: async (parent, { tagText }, context) => {
+      if (context.user) {
+        const tag = await Tag.create({
+          tagText,
+        });
+
+        await Snippet.findOneAndUpdate(
+          { _id: context.snippet._id },
+          { $addToSet: { tags: tag._id } }
+        );
+
+        return tag;
       }
       throw new AuthenticationError('You need to be logged in!');
     },

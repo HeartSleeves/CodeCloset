@@ -30,7 +30,12 @@ const snippetSchema= new Schema({
           ref: 'Comment',
         }
     ],
-
+    tags: [
+        {
+            type:Schema.Types.ObjectId,
+            ref: 'Tag',
+        }
+    ]
 
 
 })
