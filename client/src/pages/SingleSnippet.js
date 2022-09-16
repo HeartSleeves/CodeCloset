@@ -1,29 +1,25 @@
 import React from 'react';
-
-// Import the `useParams()` hook
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
-// import CommentList from '../components/CommentList';
-// import CommentForm from '../components/CommentForm';
-
+import CommentList from '../components/CommentList';
+import AddComment from '../components/AddComment';
 import { QUERY_SINGLE_SNIPPET } from '../utils/queries';
 
 const SingleSnippet = () => {
-  // Use `useParams()` to retrieve value of the route parameter `:profileId`
   const { snippetId } = useParams();
 
   const { loading, data } = useQuery(QUERY_SINGLE_SNIPPET, {
-    // pass URL parameter
     variables: { snippetId: snippetId },
   });
 
   const snippet = data?.snippet || {};
+  console.log(snippet)
 
   if (loading) {
     return <div>Loading...</div>;
   }
   return (
+    <div>
     <article className="card">
             <div className="cardheader">
                 <h4 className="cardtitle">{snippet.snippetTitle}</h4>
@@ -41,9 +37,10 @@ const SingleSnippet = () => {
             {/* <div>
                 <p className="cardlang">{snippet.snippetLanguage}</p>
             </div> */}
-          
-            
     </article>
+        <CommentList /> 
+        <AddComment />
+       </div>
   );
 };
 

@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Snippet } = require('../models');
+const { User, Snippet, Comment } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -38,7 +38,7 @@ const resolvers = {
         throw new AuthenticationError('No user found with this email address');
       }
 
-      const correctPw = await user.checkPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
@@ -66,7 +66,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    addComment: async (parent, { commentText }, context) => {
+    addComment: async (parent, { snippetId, commentText }, context) => {
       if (context.user) {
         const comment = await Comment.create({
           commentText,
@@ -79,10 +79,9 @@ const resolvers = {
         );
 
         await Snippet.findOneAndUpdate(
-          { _id: context.snippet._id },
-          { $addToSet: { comments: comment._id } }
+          { _id: snippetId},
+          { $addToSet: { comments: [comment._id] } },
         );
-
         return comment;
       }
       throw new AuthenticationError('You need to be logged in!');

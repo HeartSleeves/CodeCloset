@@ -27,6 +27,17 @@ export const ADD_SNIPPET = gql`
   }
 `;
 
+export const ADD_COMMENT = gql`
+  mutation addComment($commentText: String!) {
+    addComment(commentText: $commentText) {
+      _id
+      createdAt
+      commentAuthor
+      commentText
+    }
+  }
+`;
+
 export const ADD_USER = gql`
   mutation addUser(
     $email: String!

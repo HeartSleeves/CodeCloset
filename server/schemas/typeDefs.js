@@ -36,6 +36,7 @@ const typeDefs = gql`
     user(email:String!):User
     snippets(email: String): [Snippet]!
     snippet(snippetId: ID!): Snippet
+    comment(commentId: ID!): Comment
     me: User
   }
 
