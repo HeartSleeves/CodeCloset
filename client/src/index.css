@@ -1,21 +1,24 @@
 body {
-  background-color: #351F39;
-  color: #719FB0;
-  margin: 0
+  background-color: #fffffe;
+  color: #2e2e2e;
+  margin: 0;
+}
+a {
+  text-decoration: none;
 }
 header {
   display: flex;
 flex-flow: column nowrap;
 align-content: flex-start;
-background: linear-gradient(160deg, #719FB0 60%, #A0C1B8);
-border-bottom: 5px #719FB0 ridge;
-color: #351F39;
+background: linear-gradient(160deg, #2e2e2e 60%, #A0C1B8);
+border-bottom: 2px #2e2e2e ridge;
+color: #fffffe;
 margin: 0;
 width: 100vw;
 }
 header a{
   text-decoration: none;
-  color:#351F39;
+  color:#fffffe;
 }
 #apptitle {
   color: #A0C1B8;
@@ -23,10 +26,16 @@ header a{
   width: fit-content;
   padding: 10px;
   border-radius: 4px;
-  margin: 20px;
+  align-self: flex-start;
+  margin-left: 5vw;
+  margin-top: 5vh;
+  margin-bottom: 0;
 }
 .navbtn {
-  margin: 10px;
+  align-self: flex-start;
+  margin-left: 5vw;
+  margin-bottom: 0;
+  margin-top: 0;
   width: fit-content;
 }
 #navbar {
@@ -37,11 +46,20 @@ header a{
   align-content: center;
   margin: 10px 20px 20px 20px;
 }
+#searchparams{
+  margin-left: 5vw;
+  font-size: x-large;
+  margin-bottom: 0;
+  border-bottom: solid 3px #fbdd74;
+  padding-bottom: 10px;
+  width: 80%;
+}
 #search{
-  gap: 8px;
+  
   margin:auto;
  display: flex;
  flex-flow: row nowrap;
+ display: none;
 }
 #search label{
   font-weight: 600;
@@ -53,11 +71,12 @@ header a{
 #newsnippetbtn {
   background-color: #726A95;
   border-radius: 3px;
-  border: ridge 3px #351F39;
+  border: ridge 3px #fffffe;
   color:#A0C1B8;
-  width: 60px;
-  margin: auto 20px auto 10px;
-  align-self: flex-end;
+  font-size: large;
+  margin: auto 5vw 0 auto;
+  width: fit-content;
+  
 }
 .inputdiv label {
   margin: 10px 10px 0 10px;
@@ -83,10 +102,15 @@ header a{
   margin: 0 0 0 20px;
 }
 .cardheader {
-  background-color: #719FB0;
-  color: #351F39;
+  background-color: #2e2e2e;
+  color: #fffffe;
   margin: 0;
-  padding: 10px;
+  padding: 5px;
+}
+.cardheader a {
+  color: #4fc4cf;
+  font-size: large;
+  margin: 0;
 }
 .cardinput {
   display: flex;
@@ -117,12 +141,13 @@ input {
 #submitbtn {
 align-self: center;
 justify-self: center;
-background-color: #A0C1B8;
-color: #726A95;
+background-color: #994ff3;
+color: #fffffe;
 font-size: large;
 height: 36px;
 width: 95%;
 border-radius: 5px;
+border-color: #2e2e2e;
 margin: 36px 0 10px 0;
 }
 #submitbtn[type="submit"]:hover {
@@ -133,7 +158,7 @@ background-color: #ffa8ba;
 border: inset;
 }
 .loginswitch{
-color: #719FB0;
+color: #2e2e2e;
 margin-left: 20px;
 }
 .dashheader {
@@ -149,8 +174,8 @@ margin-left: 20px;
   flex-flow: column nowrap;
   align-content: center;
   align-items: center;
-  background-color: #719FB0;
-  color:#351F39;}
+  background-color: #2e2e2e;
+  color:#fffffe;}
 .profileheader h2{
   margin: 5px;
 }
@@ -164,9 +189,10 @@ margin-left: 20px;
 }
 .card {
   border-radius: 3px;
-  border: solid 3px #719FB0;
+  border: solid 3px #2e2e2e;
   min-width: fit-content;
   padding: 0;
+  margin: 35px;
 
 }
 .cardheader {
@@ -177,9 +203,9 @@ margin-left: 20px;
   justify-content: space-between;
   align-content: center;
   align-items: center;
-  background-color: #719FB0;
-  color:#351F39;
-  box-shadow: 2px -2px #719FB0, -2px -2px #719FB0, 2px 0  #719FB0;
+  background-color: #2e2e2e;
+  color:#fffffe;
+  box-shadow: 2px -2px #2e2e2e, -2px -2px #2e2e2e, 2px 0  #2e2e2e;
 }
 .cardheader div{
   display: flex;
@@ -187,6 +213,7 @@ margin-left: 20px;
   align-content: center;
   justify-content: center;
 }
+
 .carduser, .carddate{
   margin: 0;
 }
@@ -200,13 +227,13 @@ margin-left: 20px;
   display:block;
   white-space:pre-line;
   border-radius: 3px;
-  background-color: #A0C1B8;
-  color:#351F39;
+  background-color: #181818;
+  color:#f2eef5;
   text-justify: center;
   text-align: left;
 }
 .cardlang {
-  border-top: solid 2px #719FB0;
+  border-top: solid 2px #2e2e2e;
   text-align: center;
   margin: 20px 0 8px 0;
   padding: 8px 0 4px 0;
@@ -216,7 +243,7 @@ margin-left: 20px;
     font-size: x-large;
     margin: 20px 60px 10px 40px;
     padding-bottom: 20px;
-    border-bottom: solid 2px #719FB0;
+    border-bottom: solid 2px #2e2e2e;
 }
 .snippetdesc{
     margin-left: 60px;
@@ -232,7 +259,7 @@ border-radius: 5px;
 border: groove white 3px;
 }
 .snippetdata{
-    border-top: solid 2px #719FB0;
+    border-top: solid 2px #2e2e2e;
     margin: 20px 60px 20px 60px;
 }
 .snippettags{
@@ -263,6 +290,7 @@ border: groove white 3px;
     width: 60%;
     position: relative;
     left: 30px;
+    padding: 5px;
   }
   .commenthead {
     display: flex;
