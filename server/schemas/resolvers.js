@@ -38,7 +38,7 @@ const resolvers = {
         throw new AuthenticationError('No user found with this email address');
       }
 
-      const correctPw = await user.checkPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
@@ -63,27 +63,41 @@ const resolvers = {
         );
 
         return snippet;
+        
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    addComment: async (parent, { commentText }, context) => {
+    addComment: async (parent, { snippetId, commentText }, context) => {
       if (context.user) {
-        const comment = await Comment.create({
-          commentText,
-          commentAuthor: context.user.email,
-        });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { comments: comment._id } }
+        return Snippet.findOneAndUpdate(
+          { _id: snippetId },
+          {
+            $addToSet: {
+              comments: { commentText, commentAuthor: context.user.email },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
         );
-
-        await Snippet.findOneAndUpdate(
-          { _id: context.snippet._id },
-          { $addToSet: { comments: comment._id } }
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    removeComment: async (parent, { snippetId, commentId }, context) => {
+      if (context.user) {
+        return Snippet.findOneAndUpdate(
+          { _id: snippetId },
+          {
+            $pull: {
+              comments: {
+                _id: commentId,
+                commentAuthor: context.user.username,
+              },
+            },
+          },
+          { new: true }
         );
-
-        return comment;
       }
       throw new AuthenticationError('You need to be logged in!');
     },

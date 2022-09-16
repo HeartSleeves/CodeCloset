@@ -1,3 +1,0 @@
-<section className="commentsection">
-            
-        </section>
