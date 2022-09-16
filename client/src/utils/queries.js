@@ -13,6 +13,25 @@ export const QUERY_SNIPPET = gql`
   }
 `;
 
+export const QUERY_SINGLE_SNIPPET = gql`
+  query getSingleSnippet($snippetId: ID!) {
+    snippet(snippetId: $snippetId) {
+      _id
+      snippetTitle
+      snippetDescription
+      snippetText
+      snippetAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
+    }
+  }
+`;
+
 // export const QUERY_CHECKOUT = gql`
 //   query getCheckout($products: [ID]!) {
 //     checkout(products: $products) {
