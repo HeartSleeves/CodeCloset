@@ -1,38 +1,35 @@
 import React, { useEffect } from 'react';
-import Comment from '../Comment';
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_SINGLE_SNIPPET, QUERY_COMMENTS } from '../../utils/queries';
+// import Comment from '../Comment';
+// import { useParams } from 'react-router-dom';
+// import { useQuery } from '@apollo/client';
+// import { QUERY_SINGLE_SNIPPET, QUERY_COMMENTS } from '../../utils/queries';
 import spinner from '../../assets/spinner.gif';
 
-function CommentList() {
-  const { snippetId } = useParams();
-
-  const { loading, data } = useQuery(QUERY_SINGLE_SNIPPET, {
-    variables: { snippetId: snippetId },
-  });
-  const comments = data?.snippet.comments || [];
-  console.log(comments)
-
-
+const CommentList = ({ comments = [] }) => {
+  if (!comments.length) {
+    return <h3>No Comments Yet</h3>;
+  }
   return(
 
           <section className="comments">
-    {comments.length ? (
             <div className="commentcard">
-                {comments.map((comment) => (
-                        <Comment
-                        key={comment._id}
-                        _id={comment._id}
-                        text={comment.commentText}
-                        author={comment.commentAuthor}
-                        // userid={commentAuthor}
-                        />
+                {comments &&
+                comments.map((comment) => (
+                  <div key={comment._id} className="commentcard">
+                  <div className="commenthead"></div>
+                    <div className="comment">
+                      <p className="commentcontent">
+                        {comment.commentText}
+                      </p>
+                      {/* <Link to={`/profile/${userid}`}> */}
+                      <p className="commentdata">- {comment.commentAuthor}</p>
+                        <p>{comment.createdAt}</p>
+                      {/* </Link> */}
+                    </div>
+                  </div>
                 ))}
                 </div>
-    ) : (
-        <div></div>
-    )}
+    
     {/* <div className="bigcard hidden" id="addcomment">
     <div className="cardinput">
       <div className="inputdiv">
@@ -48,7 +45,6 @@ function CommentList() {
     </div>
     </div>
   </div> */}
-  {loading ? <img src={spinner} alt="loading" /> : null}
   </section>
           );
         }

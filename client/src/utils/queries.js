@@ -32,17 +32,6 @@ export const QUERY_SINGLE_SNIPPET = gql`
   }
 `;
 
-export const QUERY_COMMENTS = gql`
-  {
-    comments {
-      _id
-      commentText
-      commentAuthor
-      createdAt
-    }
-  }
-`;
-
 export const QUERY_USER = gql`
   {
     user {

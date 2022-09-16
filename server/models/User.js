@@ -2,7 +2,7 @@ const {Schema, model}= require('mongoose');
 const bcrypt =require('bcrypt');
 
 const snippetSchema= require('./Snippet');
-const commentSchema= require('./Comment');
+// const commentSchema= require('./Comment');
 
 const userSchema= new Schema(
     {
@@ -21,12 +21,12 @@ const userSchema= new Schema(
               ref: 'Snippet',
             }
         ],
-        comments: [
-            {
-              type: Schema.Types.ObjectId,
-              ref: 'Comment',
-            }
-        ],
+        // comments: [
+        //     {
+        //       type: Schema.Types.ObjectId,
+        //       ref: 'Comment',
+        //     }
+        // ],
     },
     // {
     //     toJSON: {

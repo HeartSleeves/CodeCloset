@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import CommentList from '../components/CommentList';
 import AddComment from '../components/AddComment';
 import { QUERY_SINGLE_SNIPPET } from '../utils/queries';
+import Auth from '../utils/auth';
 
 const SingleSnippet = () => {
   const { snippetId } = useParams();
@@ -15,11 +16,11 @@ const SingleSnippet = () => {
   const snippet = data?.snippet || {};
   console.log(snippet)
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-  return (
-    <div>
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // } else if (Auth.loggedIn()){
+    return (
+      <div>
     <article className="card">
             <div className="cardheader">
                 <h4 className="cardtitle">{snippet.snippetTitle}</h4>
@@ -36,12 +37,15 @@ const SingleSnippet = () => {
             </div>
             {/* <div>
                 <p className="cardlang">{snippet.snippetLanguage}</p>
-            </div> */}
+              </div> */}
     </article>
-        <CommentList /> 
-        <AddComment />
+        <CommentList comments={snippet.comments}/> 
+        <AddComment snippetId={snippet._id}/>
        </div>
   );
+// } else {
+//   <h3>Login to view snippets</h3>
+// }
 };
 
 export default SingleSnippet;

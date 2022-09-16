@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 
@@ -19,6 +19,8 @@ const Profile = ({snippet}) => {
         return <Navigate to="/me" />;
     }
 
+    const user = Auth.getProfile().data.email;
+
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -26,16 +28,19 @@ const Profile = ({snippet}) => {
     if (!email?.email) {
         return (
             <h3>
-                You must be logged in to view your Profile!
+                You must be logged in!
             </h3>
         );
     }
     
-
     return (
-        <section id="searchresults" className="carddisplay">
+      <div>
+      <section className="profileheader">
+        <h2>Welcome {user}!</h2>
+      </section>
+      <section id="searchresults" className="carddisplay">
           {email.snippets.length ? (
-            <div>
+            <div><h2>You've made {email.snippets.length} Posts:</h2>
               {email.snippets.map((snippet) => (
                 <Snippet
                 key={snippet._id}
@@ -46,13 +51,16 @@ const Profile = ({snippet}) => {
                 author={snippet.snippetAuthor}
                 date={snippet.createdAt}
                 />
-              ))}
+                ))}
             </div>
           ) : (
-            <h3>You haven't added any snippets yet!</h3>
+            <Link to={'/createsnippet'}>
+          <h2>Create your first Snippet!</h2>
+            </Link>
           )}
           {loading ? <img src={spinner} alt="loading" /> : null}
         </section>
+          </div>
       );
 }
 

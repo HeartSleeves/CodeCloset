@@ -49,12 +49,15 @@ function Header() {
                 <input type="search" className="searchbar" id="searchbar" name="searchbar">
                   </input>
             </div>
-                <button id="newsnippetbtn">
-                <Link to="/createsnippet">
+                  {Auth.loggedIn() ? (
+                    
+                      <button id="newsnippetbtn">
+                      <Link to="/createsnippet">
                   Create New Snippet
                   </Link>
                   </button>
-                  </nav>
+                    ): ('')} 
+              </nav>
     </header>
   )
 }

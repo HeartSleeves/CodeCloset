@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../../utils/mutations';
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 
-const AddComment = () => {
-  const { snippetId } = useParams();
-
+const AddComment = ({ snippetId }) => {
   const [formState, setFormState] = useState({commentText: ''});
   const [addComment, {error}] = useMutation(ADD_COMMENT);
-const user= Auth.getProfile().data._id;
-console.log(user)
+  
+  if (Auth.loggedIn()){
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try{ const {data} = addComment({
       variables: {
+        snippetId,
         commentText: formState.commentText,
         commentAuthor: Auth.getProfile().data.email,
-        snippetId: formState.snippetId,
       },
     });
   } catch (err) {
@@ -35,7 +33,7 @@ console.log(user)
     });
   };
 
-    if (Auth.loggedIn()){
+    
         return(
             <form onSubmit={handleFormSubmit} className="bigcard hidden" id="addcomment">
                 <div className="cardinput">
@@ -50,10 +48,6 @@ console.log(user)
                       onChange={handleChange}
                       >
                       </textarea>
-                      <input 
-                      name='snippetId'
-                      value={snippetId}
-                      onChange={handleChange}></input>
                   </div>
                   <button type="submit" id="submitbtn">Add Comment</button>
                 </div>

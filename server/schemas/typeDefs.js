@@ -6,7 +6,6 @@ const typeDefs = gql`
     email: String
     password: String
     snippets: [Snippet]!
-    comments: [Comment]!
   }
 
   type Snippet {
@@ -36,7 +35,6 @@ const typeDefs = gql`
     user(email:String!):User
     snippets(email: String): [Snippet]!
     snippet(snippetId: ID!): Snippet
-    comment(commentId: ID!): Comment
     me: User
   }
 
@@ -44,7 +42,8 @@ const typeDefs = gql`
     addUser(email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addSnippet(snippetTitle: String!, snippetDescription: String!, snippetText: String!): Snippet
-    addComment(commentText: String!): Comment
+    addComment(snippetId: ID!, commentText: String!): Snippet
+    removeComment(snippetId: ID!, commentId: ID!): Snippet
   }
 `;
 

@@ -17,7 +17,7 @@ const CreateSnippet = () => {
   } catch (err) {
     console.error(err)
   }
-    
+  window.location.assign('/profile');
   };
 
   const handleChange = (event) => {

@@ -28,12 +28,19 @@ export const ADD_SNIPPET = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($commentText: String!) {
-    addComment(commentText: $commentText) {
+  mutation addComment($snippetId: ID!, $commentText: String!) {
+    addComment(snippetId: $snippetId, commentText: $commentText) {
       _id
+      snippetAuthor
       createdAt
-      commentAuthor
-      commentText
+      snippetTitle
+      snippetDescription
+      snippetText
+      comments {
+        _id
+        commentText
+        createdAt
+      }
     }
   }
 `;
