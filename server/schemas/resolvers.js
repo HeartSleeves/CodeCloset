@@ -101,21 +101,21 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    addTag: async (parent, { tagText }, context) => {
-      if (context.user) {
-        const tag = await Tag.create({
-          tagText,
-        });
+    // addTag: async (parent, { tagText }, context) => {
+    //   if (context.user) {
+    //     const tag = await Tag.create({
+    //       tagText,
+    //     });
 
-        await Snippet.findOneAndUpdate(
-          { _id: context.snippet._id },
-          { $addToSet: { tags: tag._id } }
-        );
+    //     await Snippet.findOneAndUpdate(
+    //       { _id: context.snippet._id },
+    //       { $addToSet: { tags: tag._id } }
+    //     );
 
-        return tag;
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
+    //     return tag;
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
 }
 }
 module.exports = resolvers;
