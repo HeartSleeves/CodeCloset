@@ -44,8 +44,6 @@ const snippetSchema= new Schema({
         },
       ],
 
-
-
 })
 
 const Snippet= model('Snippet', snippetSchema)

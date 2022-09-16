@@ -25,6 +25,11 @@ const typeDefs = gql`
     createdAt: String
   }
 
+  type Tag{
+    _id: ID
+    tagText: String
+  }
+
   type Auth {
     token: ID!
     user: User
