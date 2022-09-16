@@ -1,89 +1,59 @@
-import React from "react";
+import React from 'react';
+import { Navigate, useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import Auth from '../utils/auth';
 
-function Profile (){
+import Snippet from '../components/Snippet';
+import { QUERY_ME, QUERY_USER } from '../utils/queries';
+import spinner from '../assets/spinner.gif'
+
+const Profile = ({snippet}) => {
+    const { email: emailParam } = useParams();
+
+    const { loading, data} = useQuery(emailParam ? QUERY_USER : QUERY_ME, {
+      variables:  {email: emailParam},
+    })
+    const email = data?.me || data?.email || {};
+    
+    if (Auth.loggedIn() && Auth.getProfile().data.email === emailParam) {
+        return <Navigate to="/me" />;
+    }
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (!email?.email) {
+        return (
+            <h3>
+                You must be logged in to view your Profile!
+            </h3>
+        );
+    }
+    
+
     return (
-        <body>
-        <section class="profileheader">
-          <h2>Welcome username!</h2>
-          <h2>You've made post.length Posts:</h2>
-          <h2>Create your first post!</h2>
+        <section id="searchresults" className="carddisplay">
+          {email.snippets.length ? (
+            <div>
+              {email.snippets.map((snippet) => (
+                <Snippet
+                key={snippet._id}
+                _id={snippet._id}
+                title={snippet.snippetTitle}
+                desc={snippet.snippetDescription}
+                text={snippet.snippetText}
+                author={snippet.snippetAuthor}
+                date={snippet.createdAt}
+                />
+              ))}
+            </div>
+          ) : (
+            <h3>You haven't added any snippets yet!</h3>
+          )}
+          {loading ? <img src={spinner} alt="loading" /> : null}
         </section>
-        <section id="searchresults" class="carddisplay">
-            <article class="card">
-                <div class="cardheader">
-                    <h4 class="cardtitle">Snippet</h4>
-                        <div>
-                            <p class="carduser">Created by:</p>
-                            <p class="carddate">Date created</p>
-                        </div>
-                </div>
-                <div>
-                    <p class="carddesc">short description of what the code does</p>
-                </div>
-                <div>
-                    <code class="cardsnippet">insert code</code>
-                </div>
-                <div>
-                    <p class="cardlang">Language</p>
-                </div>
-            </article>
-            <article class="card">
-                <div class="cardheader">
-                    <h4 class="cardtitle">Snippet</h4>
-                        <div>
-                            <p class="carduser">Created by:</p>
-                            <p class="carddate">Date created</p>
-                        </div>
-                </div>
-                <div>
-                    <p class="carddesc">short description of what the code does</p>
-                </div>
-                <div>
-                    <code class="cardsnippet">Insert Code</code>
-                </div>
-                <div>
-                    <p class="cardlang">Language</p>
-                </div>
-            </article>
-            <article class="card">
-                <div class="cardheader">
-                    <h4 class="cardtitle">Snippet</h4>
-                        <div>
-                            <p class="carduser">Created by:</p>
-                            <p class="carddate">Date created</p>
-                        </div>
-                </div>
-                <div>
-                    <p class="carddesc">short description of what the code does</p>
-                </div>
-                <div>
-                    <code class="cardsnippet">Insert Code</code>
-                </div>
-                <div>
-                    <p class="cardlang">Language</p>
-                </div>
-            </article>
-            <article class="card">
-                <div class="cardheader">
-                    <h4 class="cardtitle">Snippet</h4>
-                        <div>
-                            <p class="carduser">Created by:</p>
-                            <p class="carddate">Date created</p>
-                        </div>
-                </div>
-                <div>
-                    <p class="carddesc">short description of what the code does</p>
-                </div>
-                <div>
-                    <code class="cardsnippet">Insert Code</code>
-                </div>
-                <div>
-                    <p class="cardlang">Language</p>
-                </div>
-            </article>
-        </section>
-</body>
-    );
+      );
 }
 
 export default Profile

@@ -2,57 +2,44 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers"
 import { useAppContext } from "../../utils/GlobalState";
+import {idbPromise} from "../../utils/helpers";
 
 function Snippet (snippet){
+    const [state, dispatch] = useAppContext();
+
     const{
         title,
         _id,
         desc,
         text,
         author,
+        date,
         // language,
         // tags,
     } = snippet;
 
-    return (<div>
-        <section className="snippetdisplay">
+    return (
+        <article className="card">
+            <div className="cardheader">
             <Link to={`/snippets/${_id}`}>
-                <h3 className="snippettitle">{title}</h3>
+                <h4 className="cardtitle">{title}</h4>
             </Link>
-        <p className="snippetdesc">{desc}</p>
-            <div className="snippetbody">
-            <code>{text}
-     </code>
-    </div>
-    <div className="snippetdata">
-        <h4 className="snippetlang">{language}</h4>
-        <ul className="snippettags">
-            <li className="tag">tag</li>
-            
-        </ul>
-    </div>
-        </section>
-        <section className="commentsection">
             <div>
-                <div className="commentcard">
-                    <div className="commenthead"></div>
-                  
-                  <div className="comment">
-                    <p className="commentcontent">
-                      comment body
-                    </p>
-                    <p className="commentdata">
-                      -
-                      <a href="/profile/{{user.id}}">username
-                      </a>
-                      date created
-                    </p>
-                  </div>
-                  </div>
+               <p className="carduser">Created by: {author}</p> 
+               <p className="carddate">{date}</p>
             </div>
-        </section>
-    </div>
+        </div>
+        <div>
+                <p className="carddesc">{desc}</p>
+            </div>
+            <div>
+                <code className="cardsnippet">{text}</code>
+            </div>
+            {/* <div>
+                <p className="cardlang">Language</p>
+            </div> */}
+    </article>        
     );
 }
 
-export default Snippet
+export default Snippet;

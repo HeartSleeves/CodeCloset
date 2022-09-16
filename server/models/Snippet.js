@@ -4,16 +4,19 @@ const dateFormat= require('../utils/dateFormat');
 const snippetSchema= new Schema({
     snippetTitle:{
         type:String,
+        trim: true,
     },
     snippetDescription: {
         type: String,
+        trim: true,
     },
     snippetText:{
         type:String,
+        trim: true,
     },
     snippetAuthor:{
         type:String, 
-        required: true,
+        // required: true,
         trim:true,
     },
     createdAt:{

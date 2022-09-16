@@ -12,8 +12,7 @@ function Signup(){
     event.preventDefault();
     const mutationResponse = await addUser({
       variables: {
-        email: formState.email,
-        password: formState.password,
+        ...formState
       },
     });
     const token = mutationResponse.data.addUser.token;

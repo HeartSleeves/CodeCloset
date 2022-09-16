@@ -47,9 +47,9 @@ userSchema.methods.checkPassword = async function(password){
     return await bcrypt.compare(password,this.password);
 };
 
-userSchema.virtual('snippetCount').get(function(){
-    return this.savedSnippets.length;
-});
+// userSchema.virtual('snippetCount').get(function(){
+//     return this.savedSnippets.length;
+// });
 
 const User =model('User', userSchema);
 

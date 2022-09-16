@@ -6,18 +6,17 @@ const typeDefs = gql`
     email: String
     password: String
     snippets: [Snippet]!
-    comments: [Comment]
+    comments: [Comment]!
   }
 
-  type Snippet{
+  type Snippet {
     _id: ID
     snippetTitle: String
     snippetDescription: String
     snippetText: String
-    snippetAuthor:String
-    createdAt:String
-    comments: [Comment]
-
+    snippetAuthor: String
+    createdAt: String
+    comments: [Comment]!
   }
   
   type Comment{
@@ -33,9 +32,9 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]
+    users: [User]!
     user(email:String!):User
-    snippets(email: String): [Snippet]
+    snippets(email: String): [Snippet]!
     snippet(snippetId: ID!): Snippet
     me: User
   }
@@ -43,7 +42,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addSnippet(snippetText: String!): Snippet
+    addSnippet(snippetTitle: String!, snippetDescription: String!, snippetText: String!): Snippet
     addComment(commentText: String!): Comment
   }
 `;

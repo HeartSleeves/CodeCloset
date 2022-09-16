@@ -14,6 +14,7 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Contact from './components/Contact';
+import SingleSnippet from './pages/SingleSnippet';
 import NoMatch from './pages/NoMatch'
 import { AppProvider } from './utils/GlobalState';
 import CreateSnippet from './pages/CreateSnippet';
@@ -68,6 +69,10 @@ function App() {
               <Route 
                 path="/contact" 
                 element={<Contact />} 
+              />
+              <Route 
+                path="/snippets/:snippetId"
+                element={<SingleSnippet />}
               />
               <Route 
                 path="*" 
