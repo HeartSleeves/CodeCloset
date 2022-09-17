@@ -1,0 +1,8 @@
+[
+    {
+        "snippetAuthor": "adeline@email.com",
+        "snippetTitle": "centering text horizontally",
+        "snippetDescription": "for loop sample snippet code",
+        "snippetText": " .center {\nborder: 5px solid #FFFF00;\ndisplay: flex; \njustify-content: center;}}"
+    }
+]
