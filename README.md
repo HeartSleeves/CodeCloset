@@ -27,13 +27,7 @@
   ## Usage
   In terminal, run npm run start .  
 
-  Screenshot All Snippets : [allsnippets](./images/allsnippets.png)
 
-  Screenshot Create New Snippet: [createsnippet](./images/createnewsnippet.png)
-  
-  Screenshot Individual Snippet: [individualsnippet](./images/individualsnippet.png)
-
-  
   ## Credits
   Collaborators: Adeline Aguspranoto, Ivy Lovegood
 
